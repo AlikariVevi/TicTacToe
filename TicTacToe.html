@@ -1,0 +1,220 @@
+<!-- TicTacToe-->
+
+<html>
+<head>
+	<title> Tic Tac Toe </title>
+	
+	<!--------------------------------->
+	<!--           CSS               -->
+	<!--------------------------------->
+
+	<!--Bootstrap link-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<!--Custom CSS-->
+	<link rel = "stylesheet" type = "text/css" href = "TicTacToe.css">
+	<!-- Font Aswesome-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<!--FONTS-->
+	<link href="https://fonts.googleapis.com/css?family=Coiny|Righteous" rel="stylesheet">
+	
+
+</head>
+<body class="blueBody">
+
+	<!--------    NAVBAR    -------->
+	
+	<nav id="mainNavbar" class="navbar navbar-light navbar-expand-md py-1">
+
+		<ui id="about" class = "navbar-item mr-2 ml-1">
+			About
+		</ui>
+		<!--collapse button-->
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLinks" aria-controls="navbarLinks" aria-expanded="false" aria-label="Toggler navigation">
+	    <span class="fas fa-palette"></span>
+	  	</button>
+
+		<div id="navbarLinks" class = "collapse navbar-collapse justify-content-end" >
+			<ul class = "navbar-nav text-right">
+				<li id="pink" class = "colorChoice navbar-item mr-2 ml-1">
+					pink
+				</li>
+				<li id="blue" class = "colorChoice navbar-item mr-2 ml-1">
+					blue
+				</li>
+				<li id="green" class = "colorChoice navbar-item mr-2 ml-1">
+					green
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<!--------     BODY     -------->
+	
+	<section id="TTTTTitle" class="container-fluid p-4">
+		<div class="row justify-content-center">
+			<ul class="jumbotron m-4 col-11">
+				<h1 class="display-2"> Tic Tac Toe</h1>
+				<div class="lead mb-3 ml-1 justify-content-center">
+					Playing to: <input type="number" name="numberOfGames" class="text-right" value="3" min="1" style="width: 50px">
+				</div>
+				<button id="newgame" class="btn-lg mt-1">
+						NEW GAME
+				</button>
+			</ul>
+		</div>
+	</section>
+	
+	<section class="container">
+		<div class="row align-items-center justify-content-center"  >
+			<div class="p-3 col-6 ml-1 text-center">
+				<h3 id="nowPlaying">
+					hello
+				</h3>
+			</div>
+		</div>
+		<div class="row align-items-center justify-content" >
+			<div class=" col-12 col-lg text-center justify-content-center order-1">
+				<div class = "row">
+					<div class = "col-6 col-lg-12">
+						<div id="player1" class=" player playerOn">
+							Player 1
+						</div>
+					</div>
+					<div class = "col-6 col-lg-12">
+						<h3 id="player1Score">
+							0
+						</h3>
+					</div>
+				</div>
+			</div>
+			<div id="TTTTBoard" class="col-12 col-lg  container-fluid order-3 order-lg-2">
+				<!--------------------- ROW 1 --------------------------------->
+				<div class="row justify-content">
+					<div class="tile tile1 col container-fluid">
+						<div class="xTile overlay fa-6x text-center pt-1 pt-md-3 pt-lg-1 d-none">
+							<i class="fas fa-times "></i>
+						</div>
+						<div class="oTile overlay fa-4x text-center pt-4 pt-md-5 pt-lg-2 d-none ">
+							<i class="far fa-circle "></i>
+						</div>
+					</div>
+					<div class="tile tile2 tile_vertical col container-fluid">
+						<div class="xTile overlay fa-6x text-center pt-1 pt-md-3 pt-lg-1 d-none ">
+							<i class="fas fa-times" ></i>
+						</div>
+						<div class="oTile overlay fa-4x text-center pt-4 pt-md-5 pt-lg-2 d-none">
+							<i class="far fa-circle"></i>
+						</div>
+					</div>
+					<div class="tile tile3 col container-fluid">
+						<div class="xTile overlay fa-6x text-center pt-1 pt-md-3 pt-lg-1 d-none">
+							<i class="fas fa-times"></i>
+						</div>
+						<div class="oTile overlay fa-4x text-center pt-4 pt-md-5 pt-lg-2 d-none">
+							<i class="far fa-circle"></i>
+						</div>
+					</div>
+				</div>
+				<!--------------------- ROW 2 --------------------------------->
+				<div class="row justify-content">
+					<div class="tile tile4 tile_horizontal col container-fluid">
+						<div class="xTile overlay fa-6x text-center pt-1 pt-md-3 pt-lg-1 d-none">
+							<i class="fas fa-times"></i>
+						</div>
+						<div class="oTile overlay fa-4x text-center pt-4 pt-md-5  pt-lg-2 d-none">
+							<i class="far fa-circle"></i>
+						</div>
+					</div>
+					<div class="tile tile5 tile_vertical tile_horizontal col container-fluid">
+						<div class="xTile overlay fa-6x text-center pt-1 pt-md-3 pt-lg-1 d-none">
+							<i class="fas fa-times"></i>
+						</div>
+						<div class="oTile overlay fa-4x text-center pt-4 pt-md-5  pt-lg-2 d-none">
+							<i class="far fa-circle"></i>
+						</div>
+					</div>
+					<div class="tile tile6 tile_horizontal col container-fluid">
+						<div class="xTile overlay fa-6x text-center pt-1 pt-md-3 pt-lg-1 d-none">
+							<i class="fas fa-times"></i>
+						</div>
+						<div class="oTile overlay fa-4x text-center pt-4 pt-md-5  pt-lg-2 d-none">
+							<i class="far fa-circle"></i>
+						</div>
+					</div>
+				</div>
+				<!--------------------- ROW 3 --------------------------------->
+				<div class="row justify-content">
+					<div class="tile tile7 col container-fluid">
+						<div class="xTile overlay fa-6x text-center pt-1 pt-md-3 pt-lg-1 d-none">
+							<i class="fas fa-times"></i>
+						</div>
+						<div class="oTile overlay fa-4x text-center pt-4 pt-md-5  pt-lg-2 d-none">
+							<i class="far fa-circle"></i>
+						</div>
+					</div>
+					<div class="tile tile8 tile_vertical col container-fluid">
+						<div class="xTile overlay fa-6x text-center pt-1 pt-md-3 pt-lg-1 d-none">
+							<i class="fas fa-times"></i>
+						</div>
+						<div class="oTile overlay fa-4x text-center pt-4 pt-md-5  pt-lg-2 d-none">
+							<i class="far fa-circle"></i>
+						</div>
+					</div>
+					<div class="tile tile9 col container-fluid">
+						<div class="xTile overlay fa-6x text-center pt-1 pt-md-3 pt-lg-1 d-none">
+							<i class="fas fa-times"></i>
+						</div>
+						<div class="oTile overlay fa-4x text-center pt-4 pt-md-5  pt-lg-2 d-none">
+							<i class="far fa-circle"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-lg  text-center order-2 order-lg-3" >
+				<div class = "row">
+					<div class = "col-6 col-lg-12">
+						<div id="player2" class="player">
+							Player 2
+							<!-- <p id="player2Default">PALYER 2</p> <input type="name" name="player2Name" value = "player 2" class="d-none playerName"> -->
+						</div>
+					</div>
+					<div class = "col-6 col-lg-12">
+						<h3 id="player2Score">
+							0
+						</h3>
+					</div>
+				</div>
+			</div>	
+		</div>
+		<div class="row align-items-center justify-content-center"  >
+			<div class="p-3 col-6 ml-1 text-center">
+				<h3 id="hello">
+				hello
+				<h3>
+			</div>
+		</div>
+	</section>
+	<section id="TTTTTitle" class="container-fluid p-1">
+		<div class="row justify-content-center">
+			<ul class="jumbotron m-4 col-11">
+				<h1 class="display-2"> Tic Tac Toe</h1>
+			</ul>
+		</div>
+	</section>
+	<section class="container-fluid text-right">
+		<a id="contact" href="mailto:par.alikari@gmail.com">created by Vevi Alikari</a>
+	</section>
+
+	<!--------------------------------->
+	<!--        JavaScript           -->
+	<!--------------------------------->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<!--------------------------------->	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<!--------------------------------->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<!----------   CUSTOM  ------------>
+	<script src = "TicTacToe.js"></script>
+</body>
+
+</html>
