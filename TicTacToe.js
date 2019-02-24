@@ -47,7 +47,7 @@ function newgame(){
 					player2.classList.remove("winner");
 				}
 					playing=true;
-					document.querySelector("#hello").textContent = "hello ";
+					document.querySelector("#hello").textContent = "let's see who will win...";
 					document.querySelector("#nowPlaying").textContent = "hello";
 					cleaningTiles()
 				}
@@ -201,5 +201,3 @@ function win(){
 /*****         FUNCTIONS          *****/
 /**************************************/
 
-
-// red color wining line
