@@ -26,6 +26,7 @@ var player2ScoreDisplay = document.querySelector("#player2Score");
 
 var player1Win = false;
 var player2Win = false;
+var nowinner = true;
 
 var playing = true;
 var winningScore = Number(document.querySelector("input[name='numberOfGames']").value);
@@ -44,6 +45,7 @@ function newgame(){
 				if(player1Score===winningScore|player2Score===winningScore){
 					player1Score = 0;
 					player2Score = 0;
+					nowinner = true;
 					player1ScoreDisplay.textContent = 0;
 					player2ScoreDisplay.textContent = 0;
 					player1ScoreDisplay.classList.remove("winner");
@@ -115,8 +117,8 @@ function cleaningTiles(){
 	var tile = document.querySelectorAll(".tile");
 	for (var i = tile.length - 1; i >= 0; i--) {
 		if(tile[i].classList.contains("occupied")){
-			var x = document.querySelectorAll("div.X .xtile");
-			var o = document.querySelectorAll("div.O .otile");
+			var x = document.querySelectorAll("div.X .xTile");
+			var o = document.querySelectorAll("div.O .oTile");
 			for (var j = x.length - 1; j >= 0; j--) {
 				x[j].classList.add("d-none");
 			};
@@ -124,47 +126,47 @@ function cleaningTiles(){
 				o[k].classList.add("d-none");
 			};
 			tile[i].classList.remove("occupied")
+		};
 		if (tile[i].classList.contains("X")){
 			tile[i].classList.remove("X");
 		}
 		if (tile[i].classList.contains("O")){
 			tile[i].classList.remove("O");
 		}
-		};
 	};
 };
 
-clickingTIles()
+clickingTiles()
 
 
-function clickingTIles(){var boxClicked = document.querySelectorAll(".tile");
+function clickingTiles(){var boxClicked = document.querySelectorAll(".tile");
 	for (var i = boxClicked.length - 1; i >= 0; i--) {
-		boxClicked[i].addEventListener("click", onClicked);
+		boxClicked[i].addEventListener("click", function(){onClicked(this)});
 	};
 };
 
-function onClicked(){
+function onClicked(tile){
 	if(playing){
-		if(!this.classList.contains("occupied")){
-				this.classList.add("tileOn");
+		if(!tile.classList.contains("occupied")){
+				tile.classList.add("tileOn");
 				if (player1.classList.contains("playerOn")){
 					var xtile = document.querySelector("div.tileOn .xTile");
 					xtile.classList.remove("d-none");
 					player1.classList.remove("playerOn");
 					player2.classList.add("playerOn");
-					this.classList.add("X");
+					tile.classList.add("X");
 				} else  if(player2.classList.contains("playerOn")) {
 					var otile = document.querySelector("div.tileOn .oTile");
 					otile.classList.remove("d-none");
 					player2.classList.remove("playerOn");
 					player1.classList.add("playerOn");
-					this.classList.add("O")
+					tile.classList.add("O")
 				}
-				this.classList.remove("tileOn");
-				this.classList.add("occupied");
+				tile.classList.remove("tileOn");
+				tile.classList.add("occupied");
 			};
 			win();
-		}
+		};
 	}
 
 
@@ -187,8 +189,9 @@ function win(){
 					tile3.classList.contains("X")&tile6.classList.contains("X")&tile9.classList.contains("X")||
 					tile1.classList.contains("X")&tile5.classList.contains("X")&tile9.classList.contains("X")||
 					tile3.classList.contains("X")&tile5.classList.contains("X")&tile7.classList.contains("X")){
-				// adding points
+					// adding points
 					player1Score++;
+					nowinner = false;
 					// displaying score
 					player1ScoreDisplay.textContent = player1Score;
 					document.querySelector("#nowPlaying").textContent = "player 1 Won this Round";
@@ -203,7 +206,9 @@ function win(){
 					tile3.classList.contains("O")&tile6.classList.contains("O")&tile9.classList.contains("O")||
 					tile1.classList.contains("O")&tile5.classList.contains("O")&tile9.classList.contains("O")||
 					tile3.classList.contains("O")&tile5.classList.contains("O")&tile7.classList.contains("O")){
+					// adding points
 					player2Score++;
+					nowinner = false;
 					// displaying score
 					player2ScoreDisplay.textContent = player2Score;
 					document.querySelector("#nowPlaying").textContent = "player 2 Won this Round";
@@ -211,7 +216,6 @@ function win(){
 					playing=false;
 					winGame()
 				};
-
 			};
 		};
 
