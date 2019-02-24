@@ -1,12 +1,5 @@
 
 /**************************************/
-/*****           About            *****/
-/**************************************/
-
-// document.querySelector("#about").addEventListener("click", onClicked);
-
-
-/**************************************/
 /*****           BOARD            *****/
 /**************************************/
 
@@ -71,22 +64,6 @@ var player2Input =  document.querySelector("input[name='player2Name']");
 
 var player2Name = document.querySelector("#player2Default");
 
-/*****           NAME             *****/
-
-// player2.addEventListener("click", function(){
-// 										player2Input.setAttribute("class","playerName");
-// 										player2Name.addEventListener("beforeinput", function(){
-// 																				player2Input.setAttribute("class","d-none");
-// 																				player2Name.text = document.querySelector("input[name='player2Name']").value;
-																				
-// 																				player2Name.setAttribute("class","player2Default")
-// 																				}	
-// 																	);
-// 									}	
-// 						);
-
-						
-/*****           SCORE            *****/
 
 
 function winGame(){
